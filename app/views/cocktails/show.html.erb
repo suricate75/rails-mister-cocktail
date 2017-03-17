@@ -5,9 +5,15 @@
 <p>
   <% @cocktail.doses.each do |dose| %>
     <%= dose.description %>
-
+    <%= dose.ingredient.name %>
+    <%= link_to 'destroy dose', dose_path(dose), method: :delete %>
+    <!-- method: :delete dans le loop, car il est associa a une dose -->
   <% end %>
 </p>
 
- <%= link_to 'new dose', new_cocktail_dose_path %>
+ <%= link_to 'new dose', new_cocktail_dose_path(@cocktail) %>
+<!--  # new_cocktail_dose_path is the helper path
+ -->
 
+<!-- # @cocktail = @cocktail.id
+ -->

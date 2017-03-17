@@ -18,11 +18,19 @@ class DosesController < ApplicationController
   end
 
   def destroy
+    @dose = Dose.find(params[:id])
+    @dose.destroy
+
+    redirect_to cocktail_path(@dose.cocktail)
+
+    # cockail_path pour delete (cocktails_path pour GET) dose.cocktail donne
+    # une instance car dose belongs to cocktail
   end
 
   def dose_params
     params.require(:dose).permit(:description, :ingredient_id)
   end
 end
+
 
 
