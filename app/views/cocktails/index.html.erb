@@ -1,13 +1,25 @@
 
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path("rsz_yuanbin-du-87642_idaeyi") %>);">
-<!-- <div class="banner-content">
-</div> -->
+<div class="banner-content">
+
+  <h1>Welcome to Antoine's cocktails</h1>
+</div>
 </div>
 
+<div class="container">
+
+
 <% @cocktails.each do |cocktail| %>
-<h2> <%= link_to(cocktail.name, cocktail_path(cocktail)) %> </h2>
+<h2 class="text-center">
+
+<%= link_to cocktail_path(cocktail) do %>
+ <i class="fa fa-glass"></i> <%= cocktail.name %>
+<% end %>
+
+</h2>
 
 <% end %>
 
- <%= link_to 'new cocktail', new_cocktail_path %>
+</div>
+
  <!-- @cocktail car dans le path apparait un id -->
